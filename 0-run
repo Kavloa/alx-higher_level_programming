@@ -1,2 +1,2 @@
 #!/usr/bin/bash
-python3 try.py
+python3 $PYFILE
