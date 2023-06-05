@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-number = str(98)
-print(number + ' Battery street')
+x = number =98
+print( ' %i  Battery street'%x)
