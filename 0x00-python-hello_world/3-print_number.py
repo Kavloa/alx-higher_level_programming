@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-x = number =98
-print(f" %i Battery street \n "%x)
+number = 98
+print(f" {number} Battery street\n")
