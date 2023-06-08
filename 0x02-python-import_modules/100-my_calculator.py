@@ -1,27 +1,15 @@
-f __name__ == "__main__":
-    """Handle basic arithmetic operations."""
-    from calculator_1 import add, sub, div, mul
+#!/usr/bin/python3
+if __name__ == "__main__":
     import sys
-
-    av = sys.argv
-    ac = len(av)
-
-    if ac != 4:
-        print('Usage: ./100-my_calculator.py <a> <operator> <b>')
+    from calculator_1 import add, sub, mul, div
+    if len(sys.argv) - 1 != 3:
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
-
-    a = int(av[1])
-    b = int(av[3])
-
-    if av[2] != '+' and av[2] != '-' and av[2] != '*' and av[2] != '/':
-        print('Unknown operator. Available operators: +, -, * and /')
+    a = int(sys.argv[1])
+    b = int(sys.argv[3])
+    av = sys.argv[2]
+    operator = {"+": add, "-": sub, "*": mul, "/": div}
+    if av not in list(operator.keys()):
+        print("Unknown operator. Available operators: +, -, * and /")
         sys.exit(1)
-
-    if av[2] == '+':
-        print('{:} + {:d} = {:d}'.format(a, b, add(a, b)))
-    elif av[2] == '-':
-        print('{:} - {:d} = {:d}'.format(a, b, sub(a, b)))
-    elif av[2] == "*":
-        print('{:} * {:d} = {:d}'.format(a, b, mul(a, b)))
-    elif av[2] == '/':
-        print('{:} / {:d} = {:d}'.format(a, b, div(a, b)))
+    print("{} {} {} = {}".format(a, av, b, operator[av](a, b)))
